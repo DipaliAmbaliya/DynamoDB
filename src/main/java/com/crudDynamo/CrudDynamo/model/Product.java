@@ -22,5 +22,4 @@ public class Product {
     @DynamoDBAttribute
     private Long stockCount;
 
-    // Other attributes, getters, setters
 }

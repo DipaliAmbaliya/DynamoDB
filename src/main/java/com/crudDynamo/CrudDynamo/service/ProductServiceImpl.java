@@ -1,4 +1,4 @@
-package com.crudDynamo.CrudDynamo.service.Impl;
+package com.crudDynamo.CrudDynamo.service;
 
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
@@ -6,7 +6,6 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
 
 import com.crudDynamo.CrudDynamo.model.Product;
 import com.crudDynamo.CrudDynamo.model.ProductDTO;
-import com.crudDynamo.CrudDynamo.service.BL.ProductServiceBL;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class ProductServiceImpl implements ProductServiceBL {
+public class ProductServiceImpl implements ProductService {
 
     private final DynamoDBMapper dynamoDBMapper;
 
@@ -48,6 +47,7 @@ public class ProductServiceImpl implements ProductServiceBL {
     @Override
     public ProductDTO updateProduct(String id, ProductDTO dto) {
         Product product = dynamoDBMapper.load(Product.class, id);
+        dto.setId(id);
         BeanUtils.copyProperties(dto, product);
 
         dynamoDBMapper.save(product);

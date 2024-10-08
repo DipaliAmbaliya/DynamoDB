@@ -9,9 +9,6 @@ public class ProductDTO {
     private String name;
     private double price;
     private Long stockCount;
-
-    // Other attributes if needed
-
 }
 
 

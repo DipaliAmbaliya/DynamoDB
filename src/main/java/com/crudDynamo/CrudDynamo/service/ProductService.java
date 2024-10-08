@@ -1,11 +1,11 @@
-package com.crudDynamo.CrudDynamo.service.BL;
+package com.crudDynamo.CrudDynamo.service;
 
 
 import com.crudDynamo.CrudDynamo.model.ProductDTO;
 
 import java.util.List;
 
-public interface ProductServiceBL {
+public interface ProductService {
     List<ProductDTO> getAllProducts();
 
     ProductDTO getProductById(String id);
